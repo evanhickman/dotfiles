@@ -1,0 +1,61 @@
+{
+  "editor.fontFamily": "Monoid Nerd Font Retina, Monaco, 'Courier New', monospace",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "workbench.colorTheme": "Gruvbox Dark Medium",
+  "editor.formatOnSave": true,
+  "editor.wordWrap": "on",
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "json.schemaDownload.trustedDomains": {
+    "https://schemastore.azurewebsites.net/": true,
+    "https://raw.githubusercontent.com/": true,
+    "https://www.schemastore.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://json-schema.org/": true,
+    "https://biomejs.dev": true,
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome",
+  },
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "path": "bash",
+      "args": ["-l"],
+      "icon": "terminal-bash",
+    },
+    "zsh": {
+      "path": "/bin/zsh",
+      "args": ["-l"],
+    },
+    "fish": {
+      "path": "fish",
+      "args": ["-l"],
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux",
+    },
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell",
+    },
+  },
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "explorer.confirmDragAndDrop": false,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "chat.viewSessions.orientation": "stacked",
+  "editor.tabSize": 2,
+  "explorer.confirmDelete": false,
+  "editor.minimap.enabled": false,
+  "claudeCode.preferredLocation": "panel",
+}

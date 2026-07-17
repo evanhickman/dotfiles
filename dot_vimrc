@@ -1,0 +1,5 @@
+syntax on
+set number
+set hlsearch incsearch
+set tabstop=4 shiftwidth=4 expandtab
+set backspace=indent,eol,start
