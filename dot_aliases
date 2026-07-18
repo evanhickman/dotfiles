@@ -1,0 +1,32 @@
+# Chezmoi
+alias cz="chezmoi"
+alias cza="chezmoi add"
+alias czap="chezmoi apply"
+alias czd="chezmoi diff"
+alias cze="chezmoi edit"
+alias czs="chezmoi status"
+
+# GIT
+alias gaa="git add -A"
+alias gco="git checkout"
+alias gsb="git switch -b"
+alias gcmsg="git commit -m"
+alias gf="git fetch"
+alias gpl="git pull"
+alias gplo="git pull origin"
+alias gp="git push"
+alias gpus="git push --set-upstream origin"
+alias gm="git merge"
+alias gbd="git branch -d"
+alias gbdd="git branch -D"
+
+# NPM
+alias nrd="npm run dev"
+alias nrb="npm run build"
+alias nst="npm run build && npm run start"
+alias ntc="npm run typecheck"
+
+# PNPM
+alias pnd="pnpm dev"
+alias pns="pnpm start"
+alias pnb="pnpm build"
