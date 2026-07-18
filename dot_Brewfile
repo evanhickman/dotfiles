@@ -1,5 +1,7 @@
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
 # Cross-shell prompt for astronauts
