@@ -1,0 +1,13 @@
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Terminal-based AI coding assistant
+cask "claude-code"
+vscode "anthropic.claude-code"
+vscode "biomejs.biome"
+vscode "bradlc.vscode-tailwindcss"
+vscode "csstools.postcss"
+vscode "jdinhlife.gruvbox"
