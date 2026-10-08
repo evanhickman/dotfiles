@@ -1,15 +1,44 @@
+# Toolchain of the web
+brew "biome"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
-# Open-source, cross-platform JavaScript runtime environment
-brew "node"
+# Render markdown on the CLI
+brew "glow"
+# Agent multiplexer that lives in your terminal
+brew "herdr"
+# Fast, disk space efficient package manager
+brew "pnpm"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
 # Cross-shell prompt for astronauts
 brew "starship"
-# Terminal-based AI coding assistant
-cask "claude-code"
-vscode "anthropic.claude-code"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
+# OpenAI's coding agent that runs in your terminal
+cask "codex"
+cask "font-jetbrains-mono-nerd-font"
+cask "font-monaspice-nerd-font"
+# Control your tools with a few keystrokes
+cask "raycast"
+# To-do list
+cask "todoist-app"
+# Open-source code editor
+cask "visual-studio-code"
 vscode "biomejs.biome"
-vscode "bradlc.vscode-tailwindcss"
-vscode "csstools.postcss"
-vscode "jdinhlife.gruvbox"
+vscode "dbaeumer.vscode-eslint"
+vscode "esbenp.prettier-vscode"
+vscode "graphql.vscode-graphql"
+vscode "graphql.vscode-graphql-syntax"
+vscode "waderyan.gitblame"
+vscode "yoavbls.pretty-ts-errors"
+npm "contentful-cli"
+npm "corepack"
+npm "vercel"
