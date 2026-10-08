@@ -7,19 +7,15 @@ git, vim, VS Code, and a Brewfile that installs everything.
 
 1. Install [Homebrew](https://brew.sh)
 2. `brew install chezmoi`
-3. Recreate the local config (holds values kept out of this public repo):
+3. `chezmoi init --apply evanhickman`
 
-       mkdir -p ~/.config/chezmoi
-       cat > ~/.config/chezmoi/chezmoi.toml <<'EOF'
-       [data]
-           email = "<git email>"
-       EOF
+Step 3 prompts for a git email address and a machine profile (`work` or
+`personal`), then writes both to `~/.config/chezmoi/chezmoi.toml`. That file
+stays local and never enters this public repo.
 
-4. `chezmoi init --apply evanhickman`
-
-The `run_once_install-packages.sh` script runs automatically on first apply
-and installs all Homebrew packages, casks, and VS Code extensions from
-`.Brewfile`.
+`run_onchange_install-packages.sh` installs every Homebrew package, cask, and
+VS Code extension from `.Brewfile` on first apply, and re-runs whenever the
+Brewfile changes.
 
 ## Daily use
 
@@ -27,3 +23,23 @@ and installs all Homebrew packages, casks, and VS Code extensions from
     chezmoi diff          # preview
     chezmoi apply         # write to home
     chezmoi cd            # git add/commit/push from here
+
+## Profiles
+
+`profile` selects the config a machine gets. `chezmoi init` prompts for it and
+stores it in the local config; `.chezmoi.toml.tmpl` defines that prompt and
+defaults it to `personal`.
+
+Templates read `.profile` directly, so a hand-written config that omits it fails
+loudly rather than applying personal config to a work machine.
+
+chezmoi applies these only when `profile = "work"`:
+
+- Zscaler CA exports in `.zshrc`, and `http.sslCAInfo` in `.gitconfig`
+- `mkt` and `aiss` navigation aliases
+
+Templating controls what gets *applied*, not what is *visible*. This repo is
+public, so anything that must stay unreadable lives outside it rather than
+behind a profile guard. That is why Claude Code's global instructions and agent
+definitions sit unmanaged in `~/.claude`. IT provisions the Zscaler `.pem`
+files; this repo does not track them either.

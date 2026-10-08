@@ -1,0 +1,86 @@
+export PATH="$HOME/.local/bin:$PATH"
+
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME=""
+
+source $ZSH/oh-my-zsh.sh
+
+
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='nvim'
+# fi
+
+# GIT ALIASES
+alias gst="git status"
+alias gaa="git add -A"
+alias gcmsg="git commit -m"
+alias gf="git fetch"
+alias gpl="git pull"
+alias gp="git push"
+alias gpup="git push -u origin"
+alias gpo="git push origin"
+alias gs="git switch"
+alias gsc="git switch -c"
+alias gm="git merge"
+alias gb="git branch"
+alias gbd="git branch -d"
+alias gbdd="git branch -D"
+
+# NPM ALIASES
+alias ni="npm install"
+alias nrd="npm run dev"
+alias nrb="npm run build"
+alias nrp="npm run preview"
+
+# PNPM ALIASES
+alias pni="pnpm install"
+alias pnd="pnpm dev"
+alias pns="pnpm start"
+alias pnb="pnpm build"
+
+# AGENT ALIASES
+alias cursor="agent"
+{{ if eq .profile "work" }}
+# NAVIGATION ALIASES
+alias mkt="cd ~/Code/snyk-marketing-nextjs"
+alias aiss="cd ~/Code/ai-security-summit"
+{{ end }}
+# FUNCTIONS
+gbsup() {
+  local branch=${1:-$(git branch --show-current)}
+  git branch --set-upstream-to=origin/"$branch"
+}
+
+cw() {
+  local root
+  root=$(git rev-parse --show-toplevel 2>/dev/null) || {
+    echo "not inside a git worktree" >&2
+    return 1
+  }
+  open -a "Cursor" "$root"
+}
+
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+eval "$(starship init zsh)"
+
+# FIGMA TOKEN
+export FIGMA_TOKEN="$(security find-generic-password -a "$USER" -s figma-pat -w 2>/dev/null)"
+
+# JIRA TOKEN
+export JIRA_API_TOKEN="$(security find-generic-password -a "$USER" -s jira-api-token -w 2>/dev/null)"
+{{ if eq .profile "work" }}
+# ZSCALER CERTIFICATE CONFIGURATION START
+# Zscaler intercepts TLS on the managed work machine. The .pem files are
+# provisioned by IT and are deliberately not tracked in this repo.
+export REQUESTS_CA_BUNDLE={{ .chezmoi.homeDir }}/zscaler-ca-bundle.pem
+export HOMEBREW_SSL_CERT_FILE={{ .chezmoi.homeDir }}/zscaler-ca-bundle.pem
+export CURL_CA_BUNDLE={{ .chezmoi.homeDir }}/zscaler-ca-bundle.pem
+export SSL_CERT_FILE={{ .chezmoi.homeDir }}/zscaler-ca-bundle.pem
+export CACERTS_PATH={{ .chezmoi.homeDir }}/zscaler-ca-bundle.pem
+export NODE_EXTRA_CA_CERTS={{ .chezmoi.homeDir }}/zscaler-root-ca.pem
+# ZSCALER CERTIFICATE CONFIGURATION END
+{{ end -}}
