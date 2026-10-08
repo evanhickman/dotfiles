@@ -8,6 +8,7 @@ git, vim, VS Code, and a Brewfile that installs everything.
 1. Install [Homebrew](https://brew.sh)
 2. `brew install chezmoi`
 3. `chezmoi init --apply evanhickman`
+4. `curl -fsSL https://claude.ai/install.sh | bash`
 
 Step 3 prompts for a git email address and a machine profile (`work` or
 `personal`), then writes both to `~/.config/chezmoi/chezmoi.toml`. That file
@@ -16,6 +17,9 @@ stays local and never enters this public repo.
 `run_onchange_install-packages.sh` installs every Homebrew package, cask, and
 VS Code extension from `.Brewfile` on first apply, and re-runs whenever the
 Brewfile changes.
+
+Step 4 installs Claude Code with Anthropic's native installer, which updates
+itself. The Brewfile leaves Claude Code out because its Homebrew casks do not.
 
 ## Daily use
 
