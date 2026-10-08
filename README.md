@@ -40,6 +40,8 @@ chezmoi applies these only when `profile = "work"`:
 
 Templating controls what gets *applied*, not what is *visible*. This repo is
 public, so anything that must stay unreadable lives outside it rather than
-behind a profile guard. That is why Claude Code's global instructions and agent
-definitions sit unmanaged in `~/.claude`. IT provisions the Zscaler `.pem`
-files; this repo does not track them either.
+behind a profile guard. Claude Code's agent definitions in `~/.claude/agents`
+are tracked here and contain no personal information. The global
+`~/.claude/CLAUDE.md` is not tracked, because it names an employer and internal
+repos. IT provisions the Zscaler `.pem` files; this repo does not track them
+either.
