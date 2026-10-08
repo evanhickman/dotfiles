@@ -1,6 +1,7 @@
 [core]
 	excludesfile = ~/.gitignore_global
     pager = delta
+    fsmonitor = true
 
 [interactive]
 	diffFilter = delta --color-only
@@ -10,8 +11,42 @@
 	line-numbers = true
 
 [merge]
-	conflictstyle = diff3
+	conflictStyle = zdiff3
 
 [user]
     name = Evan Hickman
     email = {{ .email }}
+
+[branch]
+	sort = "-committerdate"
+
+[column]
+	ui = "auto"
+
+[fetch]
+	prune = true
+
+[init]
+	defaultBranch = "main"
+
+[pull]
+	rebase = true
+
+[rebase]
+	updateRefs = true
+
+[rerere]
+	enabled = true
+
+[credential "https://github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
+{{ if eq .profile "work" }}
+# Zscaler re-signs TLS on the managed work machine, so git needs its CA bundle.
+[http]
+	sslCAInfo = {{ .chezmoi.homeDir }}/zscaler-ca-bundle.pem
+{{ end -}}
