@@ -12,6 +12,8 @@ brew "git-delta"
 brew "glow"
 # Agent multiplexer that lives in your terminal
 brew "herdr"
+# Feature-rich interactive Jira CLI
+brew "jira-cli"
 # Fast, disk space efficient package manager
 brew "pnpm"
 # Search tool like grep and The Silver Searcher
